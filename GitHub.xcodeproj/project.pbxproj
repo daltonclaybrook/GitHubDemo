@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7515C489247ED0DE00AB9E2B /* ReactiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515C488247ED0DE00AB9E2B /* ReactiveViewModel.swift */; };
 		75DA85D2247C2D60008DD67B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA85D1247C2D60008DD67B /* AppDelegate.swift */; };
 		75DA85D4247C2D60008DD67B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA85D3247C2D60008DD67B /* SceneDelegate.swift */; };
 		75DA85D9247C2D60008DD67B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75DA85D7247C2D60008DD67B /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7515C488247ED0DE00AB9E2B /* ReactiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveViewModel.swift; sourceTree = "<group>"; };
 		75DA85CE247C2D5F008DD67B /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DA85D1247C2D60008DD67B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DA85D3247C2D60008DD67B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		75F7A0E6247C3E450040AC76 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7515C488247ED0DE00AB9E2B /* ReactiveViewModel.swift */,
 				75F7A0E7247C3E5C0040AC76 /* SearchReposViewModel.swift */,
 				75F7A0F2247C5DCD0040AC76 /* RepoCellViewModel.swift */,
 				75F7A0F4247C67DA0040AC76 /* RepoDetailsViewModel.swift */,
@@ -274,6 +277,7 @@
 				75DA85F5247C32AE008DD67B /* RepoDetailsViewController.swift in Sources */,
 				75F7A0F1247C5BA40040AC76 /* RepoCell.swift in Sources */,
 				75DA85D2247C2D60008DD67B /* AppDelegate.swift in Sources */,
+				7515C489247ED0DE00AB9E2B /* ReactiveViewModel.swift in Sources */,
 				75F7A0E5247C38C40040AC76 /* GitHubAPI.swift in Sources */,
 				75DA85D4247C2D60008DD67B /* SceneDelegate.swift in Sources */,
 			);

@@ -40,7 +40,8 @@ final class SearchReposViewController: UIViewController {
 	// MARK: - Helpers
 
 	private func makeViewModelInputs() -> SearchReposViewModel.Inputs {
-		.init(searchBarText: searchBar.rx.text.map { $0 ?? "" })
+		let searchText = searchBar.rx.text.map { $0 ?? "" }
+		return SearchReposViewModel.Inputs(searchBarText: searchText)
 	}
 
 	private func configureBindings(with outputs: SearchReposViewModel.Outputs) {
@@ -55,8 +56,8 @@ final class SearchReposViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		tableView.rx.modelSelected(Repo.self)
-			.map(RepoDetailsViewModel.init)
-			.map(RepoDetailsViewController.buildFromStoryboard(with:))
+			.map { RepoDetailsViewModel(repo: $0) }
+			.map { RepoDetailsViewController.buildFromStoryboard(with: $0) }
 			.subscribe(onNext: { [weak self] viewController in
 				self?.navigationController?.pushViewController(viewController, animated: true)
 			})

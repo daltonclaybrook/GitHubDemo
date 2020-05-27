@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-enum SearchReposViewModel {
+enum SearchReposViewModel: ReactiveViewModel {
 	struct Inputs {
 		let searchBarText: Observable<String>
 	}

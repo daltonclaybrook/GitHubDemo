@@ -24,8 +24,8 @@ extension RepoDetailsViewModel {
 		self.ownerName = repo.owner.login
 		self.ownerImageURL = repo.owner.avatarURL
 		self.repoName = repo.name
-		self.language = repo.language
-		self.description = repo.description ?? ""
+		self.language = repo.language ?? "No language"
+		self.description = repo.description ?? "No description"
 		self.starsText = pluralize(singular: "star", count: repo.stargazersCount)
 		self.forksText = pluralize(singular: "fork", count: repo.forksCount)
 		self.watchingText = "\(repo.watchersCount) watching"

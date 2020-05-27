@@ -23,7 +23,7 @@ struct Repo: Decodable {
 	let name: String
 	let description: String?
 	let url: URL
-	let language: String
+	let language: String?
 	let owner: Owner
 	let stargazersCount: Int
 	let watchersCount: Int
