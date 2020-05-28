@@ -50,7 +50,7 @@ final class SearchReposViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		outputs.repos
-			.bind(to: tableView.rx.items(cellIdentifier: RepoCell.reuseID, cellType: RepoCell.self)) { row, repo, cell in
+			.bind(to: tableView.rx.items(cellIdentifier: RepoCell.reuseID, cellType: RepoCell.self)) { _, repo, cell in
 				cell.configure(with: RepoCellViewModel(repo: repo))
 			}
 			.disposed(by: disposeBag)
@@ -63,8 +63,16 @@ final class SearchReposViewController: UIViewController {
 			})
 			.disposed(by: disposeBag)
 
-		outputs.error.subscribe(onNext: { error in
-			print("received error: \(error)")
-		}).disposed(by: disposeBag)
+		outputs.error
+			.map { error -> UIAlertController in
+				UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+			}
+			.do(onNext: { alert in
+				alert.addAction(UIAlertAction(title: "OK", style: .default))
+			})
+			.subscribe(onNext: { [weak self] alert in
+				self?.present(alert, animated: true, completion: nil)
+			})
+			.disposed(by: disposeBag)
 	}
 }
