@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7515C489247ED0DE00AB9E2B /* ReactiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515C488247ED0DE00AB9E2B /* ReactiveViewModel.swift */; };
+		75CECDAC247F40BD007C5040 /* PublishRelay+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CECDAB247F40BD007C5040 /* PublishRelay+Additions.swift */; };
+		75CECDAE247F458D007C5040 /* FavoriteReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CECDAD247F458D007C5040 /* FavoriteReposViewController.swift */; };
+		75CECDB0247F45F5007C5040 /* FavorieReposViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CECDAF247F45F5007C5040 /* FavorieReposViewModel.swift */; };
 		75DA85D2247C2D60008DD67B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA85D1247C2D60008DD67B /* AppDelegate.swift */; };
 		75DA85D4247C2D60008DD67B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA85D3247C2D60008DD67B /* SceneDelegate.swift */; };
 		75DA85D9247C2D60008DD67B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75DA85D7247C2D60008DD67B /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		7515C488247ED0DE00AB9E2B /* ReactiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveViewModel.swift; sourceTree = "<group>"; };
+		75CECDAB247F40BD007C5040 /* PublishRelay+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PublishRelay+Additions.swift"; sourceTree = "<group>"; };
+		75CECDAD247F458D007C5040 /* FavoriteReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteReposViewController.swift; sourceTree = "<group>"; };
+		75CECDAF247F45F5007C5040 /* FavorieReposViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavorieReposViewModel.swift; sourceTree = "<group>"; };
 		75DA85CE247C2D5F008DD67B /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DA85D1247C2D60008DD67B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DA85D3247C2D60008DD67B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 			children = (
 				75DA85F0247C31DD008DD67B /* SearchReposViewController.swift */,
 				75DA85F4247C32AE008DD67B /* RepoDetailsViewController.swift */,
+				75CECDAD247F458D007C5040 /* FavoriteReposViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 				75F7A0E7247C3E5C0040AC76 /* SearchReposViewModel.swift */,
 				75F7A0F2247C5DCD0040AC76 /* RepoCellViewModel.swift */,
 				75F7A0F4247C67DA0040AC76 /* RepoDetailsViewModel.swift */,
+				75CECDAF247F45F5007C5040 /* FavorieReposViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				75F7A0ED247C41310040AC76 /* Optional+Rx.swift */,
+				75CECDAB247F40BD007C5040 /* PublishRelay+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,9 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75CECDAC247F40BD007C5040 /* PublishRelay+Additions.swift in Sources */,
 				75F7A0F3247C5DCD0040AC76 /* RepoCellViewModel.swift in Sources */,
 				75F7A0EB247C3F560040AC76 /* GitHub.swift in Sources */,
 				75F7A0E8247C3E5C0040AC76 /* SearchReposViewModel.swift in Sources */,
+				75CECDAE247F458D007C5040 /* FavoriteReposViewController.swift in Sources */,
 				75F7A0F5247C67DA0040AC76 /* RepoDetailsViewModel.swift in Sources */,
 				75F7A0EE247C41310040AC76 /* Optional+Rx.swift in Sources */,
 				75DA85F1247C31DD008DD67B /* SearchReposViewController.swift in Sources */,
@@ -278,6 +289,7 @@
 				75F7A0F1247C5BA40040AC76 /* RepoCell.swift in Sources */,
 				75DA85D2247C2D60008DD67B /* AppDelegate.swift in Sources */,
 				7515C489247ED0DE00AB9E2B /* ReactiveViewModel.swift in Sources */,
+				75CECDB0247F45F5007C5040 /* FavorieReposViewModel.swift in Sources */,
 				75F7A0E5247C38C40040AC76 /* GitHubAPI.swift in Sources */,
 				75DA85D4247C2D60008DD67B /* SceneDelegate.swift in Sources */,
 			);

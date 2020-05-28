@@ -7,6 +7,86 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Favorites-->
+        <scene sceneID="RDK-Sr-eGg">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteReposViewController" id="Hol-mT-k8p" customClass="FavoriteReposViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="31z-5N-v0g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="egQ-Tt-VHB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepoCell" id="a9P-kk-QBs" customClass="RepoCell" customModule="GitHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9P-kk-QBs" id="nFM-cr-f0e">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FmF-lQ-gcw">
+                                                    <rect key="frame" x="20" y="11" width="89.5" height="38.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq4-fv-nIO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="89.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvV-Cj-cuI">
+                                                            <rect key="frame" x="0.0" y="20.5" width="45.5" height="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7z-om-ebB">
+                                                    <rect key="frame" x="331" y="0.0" width="44" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="04L-vR-23Z"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FmF-lQ-gcw" firstAttribute="leading" secondItem="nFM-cr-f0e" secondAttribute="leading" constant="20" id="JXc-Ja-eiQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="d7z-om-ebB" secondAttribute="bottom" id="VjI-J3-zhv"/>
+                                                <constraint firstAttribute="trailing" secondItem="d7z-om-ebB" secondAttribute="trailing" constant="8" id="aNb-kE-Gji"/>
+                                                <constraint firstItem="d7z-om-ebB" firstAttribute="top" secondItem="nFM-cr-f0e" secondAttribute="top" id="pBx-oI-lEP"/>
+                                                <constraint firstItem="FmF-lQ-gcw" firstAttribute="centerY" secondItem="nFM-cr-f0e" secondAttribute="centerY" id="tGE-Ts-hLJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="mq4-fv-nIO" id="qLW-2F-1eh"/>
+                                            <outlet property="ownerLabel" destination="bvV-Cj-cuI" id="T79-PZ-7PP"/>
+                                            <outlet property="starButton" destination="d7z-om-ebB" id="MdA-oj-4Ne"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="egQ-Tt-VHB" secondAttribute="bottom" id="UZ1-Vd-7gY"/>
+                            <constraint firstItem="egQ-Tt-VHB" firstAttribute="leading" secondItem="31z-5N-v0g" secondAttribute="leading" id="Xyf-yU-7kB"/>
+                            <constraint firstItem="egQ-Tt-VHB" firstAttribute="top" secondItem="31z-5N-v0g" secondAttribute="top" id="a4m-W7-Dkg"/>
+                            <constraint firstAttribute="trailing" secondItem="egQ-Tt-VHB" secondAttribute="trailing" id="oy6-GW-ULc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ha-ir-RvD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="GEH-Ji-2t2"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="egQ-Tt-VHB" id="vTB-Nh-3It"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tum-fj-y2U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.0000000000001" y="-536.38392857142856"/>
+        </scene>
         <!--Search Repos-->
         <scene sceneID="tZN-E3-13i">
             <objects>
@@ -48,15 +128,26 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-iG-y3C">
+                                                    <rect key="frame" x="331" y="0.0" width="44" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="K3T-9c-aIe"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="QJF-iG-y3C" secondAttribute="trailing" constant="8" id="Qs8-tZ-m4n"/>
+                                                <constraint firstAttribute="bottom" secondItem="QJF-iG-y3C" secondAttribute="bottom" id="Si3-AE-vbj"/>
                                                 <constraint firstItem="mzX-lB-UbA" firstAttribute="centerY" secondItem="ZLY-40-5u5" secondAttribute="centerY" id="erU-kR-QIB"/>
+                                                <constraint firstItem="QJF-iG-y3C" firstAttribute="top" secondItem="ZLY-40-5u5" secondAttribute="top" id="es7-J6-WCW"/>
                                                 <constraint firstItem="mzX-lB-UbA" firstAttribute="leading" secondItem="ZLY-40-5u5" secondAttribute="leading" constant="20" id="pFG-Zh-Lx5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="kAp-N6-IXu" id="1os-E5-y2u"/>
                                             <outlet property="ownerLabel" destination="fbH-dp-Zxw" id="n3i-cP-p3h"/>
+                                            <outlet property="starButton" destination="QJF-iG-y3C" id="Yt7-Y9-IU7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,8 +167,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Myu-e6-GkJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Repos" id="GDr-ol-MY7"/>
+                    <navigationItem key="navigationItem" title="Search Repos" id="GDr-ol-MY7">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="0by-qC-V9c"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favoritesButton" destination="0by-qC-V9c" id="CIh-5Z-b6n"/>
                         <outlet property="loadingIndicator" destination="h8Z-47-hVu" id="7i3-wE-XXw"/>
                         <outlet property="searchBar" destination="yJf-og-cox" id="uZy-lP-AbB"/>
                         <outlet property="tableView" destination="xyZ-Bh-J3g" id="W1D-bX-izm"/>
@@ -85,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqZ-A9-Kys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000" y="138"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="137.94642857142856"/>
         </scene>
         <!--Repo Details-->
         <scene sceneID="g5C-a0-6GQ">
@@ -245,6 +339,7 @@
     </scenes>
     <resources>
         <image name="eye.fill" catalog="system" width="128" height="78"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="tuningfork" catalog="system" width="128" height="116"/>
     </resources>

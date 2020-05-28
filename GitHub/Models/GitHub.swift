@@ -18,8 +18,10 @@ struct ReposResponse: Decodable {
 	}
 }
 
+typealias RepoID = Int
+
 struct Repo: Decodable {
-	let id: Int
+	let id: RepoID
 	let name: String
 	let description: String?
 	let url: URL

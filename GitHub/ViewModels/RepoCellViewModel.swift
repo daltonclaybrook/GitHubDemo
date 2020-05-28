@@ -9,13 +9,7 @@
 import Foundation
 
 struct RepoCellViewModel {
-	let name: String
-	let owner: String
-}
-
-extension RepoCellViewModel {
-	init(repo: Repo) {
-		self.name = repo.name
-		self.owner = repo.owner.login
-	}
+	let repo: Repo
+	var name: String { repo.name }
+	var owner: String { repo.owner.login }
 }
