@@ -1,5 +1,5 @@
-# **Rx**Swift
-## *The flow of app state*
+## **Reactive** Programming
+### *The flow of app state*
 
 ---
 
@@ -14,7 +14,9 @@
 
 ---
 
-Build the plumbing
+Route the plumbing
++
+Attach pressure gauges (side-effects)
 +
 Connect the sources / sinks
 +
@@ -22,15 +24,18 @@ Let it flow
 
 ---
 
-^ Use case: an app that can search for GitHub repositories and display them in a list
+**Use case:**
+App that can search for GitHub repositories and display them in a list
+
+---
 
 # Imperative
 
 1. Listen for search button callback (target/action)
 2. Read value of text field and **call** search API
-3. Listen for search API callback (block)
+3. Listen for search API callback (closure)
 4. **Parse** response and **update** data source with models
-5. **Reload** table view and configre/display cells
+5. **Reload** table view and configure/display cells
 
 ---
 
@@ -48,24 +53,29 @@ Let it flow
 
 ---
 
-```swift
-let foo = Observable<String>
-```
+Yes! But...
+The difference is in the way we **think** about state
 
 ---
 
-# Quotes
+# Imperative
 
-Quotes look great in our themes. Here’s how they work.
+**Update** data source with models
+
+ ==
+
+**Mutate** a state variable
 
 ---
 
-> The best way to predict the future is to invent it
--- Alan Kay
+# Reactive
+
+**Relationships**
+
+&&
+
+**Transformations**
 
 ---
 
-# And with some other body copy
-
-> The best way to predict the future is to invent it
--- Alan Kay
+# *Demo*
