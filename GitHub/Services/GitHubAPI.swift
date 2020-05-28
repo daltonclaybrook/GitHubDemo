@@ -24,13 +24,11 @@ struct GitHubAPI {
 			let request = makeSearchRequest(query: query)
 			let task = URLSession.shared.dataTask(with: request) { data, response, error in
 				let result: Result<ReposResponse, Error> = handleResponse(data: data, response: response, error: error)
-				DispatchQueue.main.async {
-					switch result {
-					case let .success(response):
-						subscriber(.success(response))
-					case let .failure(error):
-						subscriber(.error(error))
-					}
+				switch result {
+				case let .success(response):
+					subscriber(.success(response))
+				case let .failure(error):
+					subscriber(.error(error))
 				}
 			}
 			task.resume()

@@ -22,6 +22,8 @@ Connect the sources / sinks
 +
 Let it flow
 
+![](images/pipes.jpg)
+
 ---
 
 **Use case:**
