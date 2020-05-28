@@ -114,13 +114,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mzX-lB-UbA">
                                                     <rect key="frame" x="20" y="11" width="89.5" height="38.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Repo name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-N6-IXu">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAp-N6-IXu">
                                                             <rect key="frame" x="0.0" y="0.0" width="89.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-dp-Zxw">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-dp-Zxw">
                                                             <rect key="frame" x="0.0" y="20.5" width="45.5" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -279,6 +279,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0M-jE-amA">
+                                <rect key="frame" x="334" y="100" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="h13-QJ-3oH"/>
+                                    <constraint firstAttribute="height" constant="60" id="pWU-uJ-X8b"/>
+                                </constraints>
+                                <state key="normal" image="star" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -287,6 +295,7 @@
                             <constraint firstItem="p8u-7Z-475" firstAttribute="top" secondItem="2Cg-9b-wUE" secondAttribute="bottom" constant="20" id="Jzz-Xk-tjx"/>
                             <constraint firstItem="p8u-7Z-475" firstAttribute="leading" secondItem="eJc-c8-2Iu" secondAttribute="leading" constant="20" id="Kle-mL-OAS"/>
                             <constraint firstItem="d5m-S3-ToU" firstAttribute="leading" secondItem="eJc-c8-2Iu" secondAttribute="leading" constant="20" id="Lor-XJ-oPK"/>
+                            <constraint firstItem="p0M-jE-amA" firstAttribute="centerY" secondItem="Xmg-BH-Z7h" secondAttribute="centerY" id="OG3-fq-V1m"/>
                             <constraint firstItem="Xmg-BH-Z7h" firstAttribute="leading" secondItem="eJc-c8-2Iu" secondAttribute="leading" constant="20" id="YSx-Ek-M0J"/>
                             <constraint firstItem="d5m-S3-ToU" firstAttribute="top" secondItem="p8u-7Z-475" secondAttribute="bottom" constant="20" id="blc-U2-aJC"/>
                             <constraint firstItem="llc-H0-SDU" firstAttribute="centerY" secondItem="d5m-S3-ToU" secondAttribute="centerY" id="fsW-7s-34Y"/>
@@ -298,6 +307,7 @@
                             <constraint firstItem="8oF-Ly-XHv" firstAttribute="leading" secondItem="d5m-S3-ToU" secondAttribute="trailing" constant="8" id="qzL-h3-o4b"/>
                             <constraint firstItem="0HR-sp-FPM" firstAttribute="top" secondItem="Xmg-BH-Z7h" secondAttribute="bottom" constant="20" id="uBk-QI-RIM"/>
                             <constraint firstItem="llc-H0-SDU" firstAttribute="leading" secondItem="8oF-Ly-XHv" secondAttribute="trailing" constant="8" id="ycw-NA-HCt"/>
+                            <constraint firstItem="eJc-c8-2Iu" firstAttribute="trailing" secondItem="p0M-jE-amA" secondAttribute="trailing" constant="20" id="zIl-1r-b5S"/>
                             <constraint firstItem="0HR-sp-FPM" firstAttribute="leading" secondItem="eJc-c8-2Iu" secondAttribute="leading" constant="20" id="zmE-Mz-9Px"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eJc-c8-2Iu"/>
@@ -310,6 +320,7 @@
                         <outlet property="ownerImageView" destination="LCF-yz-0we" id="Ycd-f5-QlM"/>
                         <outlet property="ownerNameLabel" destination="dGc-Yn-J28" id="Pht-qf-uM6"/>
                         <outlet property="repoNameLabel" destination="0HR-sp-FPM" id="i3a-PG-REo"/>
+                        <outlet property="starButton" destination="p0M-jE-amA" id="abr-t4-87S"/>
                         <outlet property="starsLabel" destination="vBl-ih-uET" id="U3P-V1-v1y"/>
                         <outlet property="watchingLabel" destination="v1v-6O-aWj" id="f3z-WY-ueQ"/>
                     </connections>

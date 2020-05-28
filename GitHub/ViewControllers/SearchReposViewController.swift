@@ -52,8 +52,20 @@ final class SearchReposViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		let starredRepos = getStarredRepos().share(replay: 1)
-		let isRepoStarred = { (repo: Repo) in starredRepos.map { $0[repo.id] != nil } }
+		let isRepoStarred: (Repo) -> Observable<Bool> = { repo in
+			starredRepos.map { $0[repo.id] != nil }
+		}
 
+		configureTableViewCells(outputs: outputs, isRepoStarred: isRepoStarred)
+
+		configureModelSelection(isRepoStarred: isRepoStarred)
+
+		configureFavoritesPresentation(starredRepos: starredRepos)
+
+		configureErrorPresentation(outputs: outputs)
+	}
+
+	private func configureTableViewCells(outputs: SearchReposViewModel.Outputs, isRepoStarred: @escaping (Repo) -> Observable<Bool>) {
 		outputs.repos
 			.bind(to: tableView.rx.items(cellIdentifier: RepoCell.reuseID, cellType: RepoCell.self)) { [repoStarToggledRelay] _, repo, cell in
 				cell.configure(
@@ -63,15 +75,25 @@ final class SearchReposViewController: UIViewController {
 				)
 			}
 			.disposed(by: disposeBag)
+	}
 
+	private func configureModelSelection(isRepoStarred: @escaping (Repo) -> Observable<Bool>) {
 		tableView.rx.modelSelected(Repo.self)
-			.map { RepoDetailsViewModel(repo: $0) }
+			.map { [repoStarToggledRelay] repo in
+				RepoDetailsViewModel(
+					repo: repo,
+					isRepoStarred: isRepoStarred(repo),
+					repoStarToggled: repoStarToggledRelay.asObserver()
+				)
+			}
 			.map { RepoDetailsViewController.buildFromStoryboard(with: $0) }
 			.subscribe(onNext: { [weak self] viewController in
 				self?.navigationController?.pushViewController(viewController, animated: true)
 			})
 			.disposed(by: disposeBag)
+	}
 
+	private func configureFavoritesPresentation(starredRepos: Observable<[RepoID: Repo]>) {
 		let favoriteRepos = starredRepos.map { $0.values.sorted { $0.name < $1.name } }
 		favoritesButton.rx.tap
 			.map { [repoStarToggledRelay] in
@@ -83,7 +105,9 @@ final class SearchReposViewController: UIViewController {
 				self?.present(navController, animated: true, completion: nil)
 			})
 			.disposed(by: disposeBag)
+	}
 
+	private func configureErrorPresentation(outputs: SearchReposViewModel.Outputs) {
 		outputs.error
 			.map { error -> UIAlertController in
 				UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)

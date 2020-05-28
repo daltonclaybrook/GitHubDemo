@@ -7,19 +7,23 @@
 //
 
 import Kingfisher
+import RxCocoa
+import RxSwift
 import UIKit
 
 final class RepoDetailsViewController: UIViewController {
-	@IBOutlet var ownerImageView: UIImageView!
-	@IBOutlet var ownerNameLabel: UILabel!
-	@IBOutlet var repoNameLabel: UILabel!
-	@IBOutlet var languageLabel: UILabel!
-	@IBOutlet var descriptionLabel: UILabel!
-	@IBOutlet var starsLabel: UILabel!
-	@IBOutlet var forksLabel: UILabel!
-	@IBOutlet var watchingLabel: UILabel!
+	@IBOutlet private var ownerImageView: UIImageView!
+	@IBOutlet private var ownerNameLabel: UILabel!
+	@IBOutlet private var repoNameLabel: UILabel!
+	@IBOutlet private var languageLabel: UILabel!
+	@IBOutlet private var descriptionLabel: UILabel!
+	@IBOutlet private var starsLabel: UILabel!
+	@IBOutlet private var forksLabel: UILabel!
+	@IBOutlet private var watchingLabel: UILabel!
+	@IBOutlet private var starButton: UIButton!
 
 	private let viewModel: RepoDetailsViewModel
+	private let disposeBag = DisposeBag()
 
 	init?(coder: NSCoder, viewModel: RepoDetailsViewModel) {
 		self.viewModel = viewModel
@@ -53,6 +57,17 @@ final class RepoDetailsViewController: UIViewController {
 		starsLabel.text = viewModel.starsText
 		forksLabel.text = viewModel.forksText
 		watchingLabel.text = viewModel.watchingText
+
+		viewModel.isRepoStarred
+			.map { $0 ? "star.fill" : "star" }
+			.map { UIImage(systemName: $0) }
+			.bind(to: starButton.rx.image(for: .normal))
+			.disposed(by: disposeBag)
+
+		starButton.rx.tap
+			.map { viewModel.repo }
+			.bind(to: viewModel.repoStarToggled)
+			.disposed(by: disposeBag)
 	}
 }
 

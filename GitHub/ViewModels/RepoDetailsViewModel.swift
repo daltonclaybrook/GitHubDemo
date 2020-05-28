@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 struct RepoDetailsViewModel {
+	let repo: Repo
 	let ownerName: String
 	let ownerImageURL: URL
 	let repoName: String
@@ -17,10 +19,13 @@ struct RepoDetailsViewModel {
 	let starsText: String
 	let forksText: String
 	let watchingText: String
+	let isRepoStarred: Observable<Bool>
+	let repoStarToggled: AnyObserver<Repo>
 }
 
 extension RepoDetailsViewModel {
-	init(repo: Repo) {
+	init(repo: Repo, isRepoStarred: Observable<Bool>, repoStarToggled: AnyObserver<Repo>) {
+		self.repo = repo
 		self.ownerName = repo.owner.login
 		self.ownerImageURL = repo.owner.avatarURL
 		self.repoName = repo.name
@@ -29,6 +34,8 @@ extension RepoDetailsViewModel {
 		self.starsText = pluralize(singular: "star", count: repo.stargazersCount)
 		self.forksText = pluralize(singular: "fork", count: repo.forksCount)
 		self.watchingText = "\(repo.watchersCount) watching"
+		self.isRepoStarred = isRepoStarred
+		self.repoStarToggled = repoStarToggled
 	}
 }
 
