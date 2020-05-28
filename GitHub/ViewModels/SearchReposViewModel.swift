@@ -22,13 +22,13 @@ enum SearchReposViewModel: ReactiveViewModel {
 
 extension SearchReposViewModel {
 	static func transform(inputs: Inputs) -> Outputs {
-		let searchQuery = inputs.searchBarText
+		let searchQuery: Observable<String> = inputs.searchBarText
 			.debounce(.milliseconds(500), scheduler: MainScheduler.instance)
 			.filter { !$0.isEmpty }
 			.distinctUntilChanged()
 			.share()
 
-		let searchResponse = searchQuery
+		let searchResponse: Observable<Event<ReposResponse>> = searchQuery
 			.flatMapLatest { query in
 				GitHubAPI.makeSingleForSearchRepos(query: query)
 					.asObservable()
@@ -38,17 +38,20 @@ extension SearchReposViewModel {
 			}
 			.share(replay: 1)
 
-		let startedLoading = searchQuery.map { _ in true }
-		let stoppedLoading = searchResponse.map { _ in false }
+		let startedLoading: Observable<Bool> = searchQuery.map { _ in true }
+		let stoppedLoading: Observable<Bool> = searchResponse.map { _ in false }
 
-		let isLoading = Observable
+		let isLoading: Observable<Bool> = Observable
 			.merge(startedLoading, stoppedLoading)
 			.startWith(false)
 			.share(replay: 1)
-		let repos = searchResponse
+		let repos: Observable<[Repo]> = searchResponse
 			.map { $0.element?.items ?? [] }
 			.share(replay: 1)
-		let error = searchResponse.map { $0.error }.unwrapped()
+		let error: Observable<Error> = searchResponse
+			.map { $0.error }
+			.unwrapped()
+			.share()
 
 		return Outputs(isLoading: isLoading, repos: repos, error: error)
 	}

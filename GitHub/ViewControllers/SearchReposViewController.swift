@@ -42,7 +42,7 @@ final class SearchReposViewController: UIViewController {
 	// MARK: - Helpers
 
 	private func makeViewModelInputs() -> SearchReposViewModel.Inputs {
-		let searchText = searchBar.rx.text.map { $0 ?? "" }
+		let searchText: Observable<String> = searchBar.rx.text.map { $0 ?? "" }
 		return SearchReposViewModel.Inputs(searchBarText: searchText)
 	}
 
