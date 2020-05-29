@@ -12,6 +12,8 @@
 
 ![](images/pipes.jpg)
 
+^ A lot of what we do in reactive programming involves laying the foundation for how state is routed, and letting that routing happen.
+
 ---
 
 Route the plumbing
