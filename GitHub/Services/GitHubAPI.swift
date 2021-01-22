@@ -28,7 +28,7 @@ struct GitHubAPI {
 				case let .success(response):
 					subscriber(.success(response))
 				case let .failure(error):
-					subscriber(.error(error))
+					subscriber(.failure(error))
 				}
 			}
 			task.resume()

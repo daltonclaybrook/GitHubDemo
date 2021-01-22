@@ -32,7 +32,7 @@ extension SearchReposViewModel {
 			.flatMapLatest { query in
 				GitHubAPI.makeSingleForSearchRepos(query: query)
 					.asObservable()
-					.observeOn(MainScheduler.instance)
+					.observe(on: MainScheduler.instance)
 					.materialize()
 					.filter { !$0.isCompleted }
 			}
